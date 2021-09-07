@@ -1,6 +1,8 @@
 <template>
-  <nuxt-link :to="`/tools/${tool.id}`" class="flex flex-col rounded-xl shadow-lg border bg-white transform transition hover:border-blue-500 duration-500">
-    <img class="h-72 object-contain w-full" :src="tool.fields['Photo de couverture'][0].url" :alt="`Photo de couverture de ${tool.fields['Nom']}`">
+  <div class="flex flex-col rounded-xl shadow-lg border bg-white transform transition hover:border-blue-500 duration-500" @click="clickRecord($event)">
+    <nuxt-link :to="`/tools/${tool.id}`">
+      <img class="h-72 object-contain w-full" :src="tool.fields['Photo de couverture'][0].url" :alt="`Photo de couverture de ${tool.fields['Nom']}`">
+    </nuxt-link>
     <hr class="border-b m-2">
     <div class="mb-3 px-6 pt-4">
       <img class="w-12 h-12" :src="tool.fields['Logo'][0].url" :alt="`Logo de ${tool.fields['Nom']}`">
@@ -20,13 +22,11 @@
           En savoir plus
         </nuxt-link>
       </ButtonApp>
-      <ButtonApp class="bg-blue-500 hover:bg-blue-700">
-        <a :href="tool.fields['Site Web']">
-          Visiter le site
-        </a>
-      </ButtonApp>
+      <ButtonAppHref class="z-30 bg-blue-500 hover:bg-blue-700" :href="tool.fields['Site Web']">
+        Visiter le site
+      </ButtonAppHref>
     </div>
-  </nuxt-link>
+  </div>
 </template>
 
 <script lang="ts">
@@ -43,6 +43,12 @@ export default class CardDetails extends Vue {
       return value.substring(0, 124) + '...'
     }
     return value
+  }
+
+  clickRecord (e:any) {
+    if (e.target.tagName === 'A') {
+      console.log('ddd')
+    }
   }
 }
 </script>
