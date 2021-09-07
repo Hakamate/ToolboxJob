@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col rounded-xl shadow-lg border bg-white transform transition hover:border-blue-500 duration-500" @click="clickRecord($event)">
+  <div class="flex flex-col rounded-xl shadow-lg border bg-white transform transition hover:border-blue-500 duration-500">
     <nuxt-link :to="`/tools/${tool.id}`">
       <img class="h-72 object-contain w-full" :src="tool.fields['Photo de couverture'][0].url" :alt="`Photo de couverture de ${tool.fields['Nom']}`">
     </nuxt-link>
@@ -43,12 +43,6 @@ export default class CardDetails extends Vue {
       return value.substring(0, 124) + '...'
     }
     return value
-  }
-
-  clickRecord (e:any) {
-    if (e.target.tagName === 'A') {
-      console.log('ddd')
-    }
   }
 }
 </script>

@@ -30,8 +30,6 @@ export default class Index extends Vue {
   async mounted () {
     if (this.tools.length === 0) {
       const tools = await this.$axios.$get(`https://api.airtable.com/v0/${process.env.NUXT_ENV_BASE}/Outils?sortField=Classement&sortDirection=asc`, { params: { api_key: process.env.NUXT_ENV_AIRTABLE_KEY } })
-      console.log({ tools })
-
       ToolStore.setUser(tools.records)
     }
   }
