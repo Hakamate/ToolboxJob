@@ -36,6 +36,8 @@ export interface IField {
   'Photo Fondateur': Array<IFieldImages>
   'Photo de couverture': Array<IFieldImages>
   Tags: Array<string>
+  'Profil Fondateur': string
+  'Site Web': string
 }
 
 export interface ITool {
