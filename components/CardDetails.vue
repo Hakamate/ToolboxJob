@@ -16,12 +16,12 @@
     <p class="mt-2 px-6 ">
       {{ shortedDescription(tool.fields['Description']) }}
     </p>
-    <div class="px-6 pb-6 grid gap-3 mt-auto pt-6">
-      <ButtonAppHref :link="`/outils/${tool.id}`" class="bg-gray-500 hover:bg-gray-700">
-        En savoir plus
+    <div class="px-6 pb-6 grid grid-cols-2 gap-3 mt-auto pt-6">
+      <ButtonAppHref :link="`/outils/${tool.id}`" class="bg-gray-400 hover:bg-gray-500">
+        Plus d'infos
       </ButtonAppHref>
-      <ButtonAppHref :link-nuxt="false" class="z-30 bg-blue-500 hover:bg-blue-700" :link="tool.fields['Site Web']">
-        Visiter le site
+      <ButtonAppHref :link-nuxt="false" class="z-30 bg-blue-400 hover:bg-blue-500" :link="tool.fields['Site Web']">
+        Voir le site
       </ButtonAppHref>
     </div>
   </div>
