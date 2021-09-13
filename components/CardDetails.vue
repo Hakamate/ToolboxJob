@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col rounded-xl shadow-lg border bg-white transform transition hover:border-blue-500 duration-500">
-    <nuxt-link :to="`/tools/${tool.id}`">
+    <nuxt-link :to="`/outils/${tool.id}`">
       <img class="h-72 object-contain w-full" :src="tool.fields['Photo de couverture'][0].url" :alt="`Photo de couverture de ${tool.fields['Nom']}`">
     </nuxt-link>
     <hr class="border-b m-2">
@@ -17,12 +17,10 @@
       {{ shortedDescription(tool.fields['Description']) }}
     </p>
     <div class="px-6 pb-6 grid gap-3 mt-auto pt-6">
-      <ButtonApp class="bg-gray-500 hover:bg-gray-700">
-        <nuxt-link :to="`/tools/${tool.id}`">
-          En savoir plus
-        </nuxt-link>
-      </ButtonApp>
-      <ButtonAppHref class="z-30 bg-blue-500 hover:bg-blue-700" :href="tool.fields['Site Web']">
+      <ButtonAppHref :link="`/outils/${tool.id}`" class="bg-gray-500 hover:bg-gray-700">
+        En savoir plus
+      </ButtonAppHref>
+      <ButtonAppHref :link-nuxt="false" class="z-30 bg-blue-500 hover:bg-blue-700" :link="tool.fields['Site Web']">
         Visiter le site
       </ButtonAppHref>
     </div>

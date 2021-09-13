@@ -43,6 +43,6 @@ export default class Index extends Vue {
 <style>
 html {
     font-family: Rubik, sans-serif;
-    background-color: rgb(240, 246, 255);
+    background-color: #f6f7f9;
 }
 </style>

@@ -12,6 +12,10 @@ class ToolStore extends BaseStoreService<ToolStoreState> {
     return this.read<Array<ITool>>(this.getters.tools)
   }
 
+  tool (id: string | undefined): ITool | undefined {
+    return this.tools.find(tool => tool.id === id)
+  }
+
   get loading (): boolean {
     return this.read<boolean>(this.getters.loading)
   }
