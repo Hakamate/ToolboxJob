@@ -25,7 +25,7 @@
                 </span>
               </div>
             </div>
-            <div class="flex flex-col">
+            <!-- <div class="flex flex-col">
               <span class="text-sm font-medium text-gray-600">Site web</span>
               <a :href="tool.fields['Site Web']" target="_blank" class="text-blue-500 hover:underline">
                 <div class="hidden sm:block">
@@ -35,8 +35,28 @@
                   {{ tool.fields['Site Web'] }}
                 </div>
               </a>
-            </div>
+            </div> -->
             <div class="flex flex-col">
+              <span class="text-sm font-medium text-gray-600">Fonctionnalités</span>
+              <div class="grid gap-1 mt-1">
+                <div v-for="(feature, indexFeature) in tool.fields['Fonctionnalités']" :key="indexFeature" class="text-sm w-auto flex items-center">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="check-circle"
+                    class="text-green-500 mx-1 w-3 h-3 svg-inline--fa fa-check-circle fa-w-16"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  ><path fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" /></svg>
+                  <span>
+                    {{ feature }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="flex flex-col">
               <span class="text-sm font-medium text-gray-600">Photo fondateur</span>
               <img :src="tool.fields['Photo Fondateur'][0].url" alt="" class="rounded-lg w-24 h-24 mt-1">
             </div>
@@ -50,7 +70,7 @@
                   {{ tool.fields['Profil Fondateur'] }}
                 </div>
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -66,7 +86,7 @@
               {{ shortedBoxURL(tool.fields['Site Web']) }}
             </a>
           </div>
-          <div class="text-center grid gap-3 p-6 border-t-8 border-blue-500 bg-white rounded-xl shadow-lg">
+          <!-- <div class="text-center grid gap-3 p-6 border-t-8 border-blue-500 bg-white rounded-xl shadow-lg">
             <span class="text-sm font-medium text-gray-600">Nom fondateur</span>
             <span class="text-xl font-semibold">{{ tool.fields['Nom Fondateur'] }}</span>
           </div>
@@ -75,7 +95,7 @@
             <a :href="tool.fields['Profil Fondateur']" target="_blank" class="text-blue-500 hover:underline">
               {{ shortedBoxURL(tool.fields['Profil Fondateur']) }}
             </a>
-          </div>
+          </div> -->
         </div>
         <div class="bg-white flex flex-col rounded-lg shadow-lg p-6 my-5">
           <span class="text-sm font-medium text-gray-600 mb-2">Description</span>
@@ -121,8 +141,6 @@ export default class ToolSpecific extends Vue {
   }
 
   shortedURL (value: string) : string {
-    console.log({ value })
-
     if (value.length > 22) {
       return value.substring(0, 21) + '...'
     }

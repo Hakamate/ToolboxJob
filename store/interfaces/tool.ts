@@ -35,6 +35,8 @@ export interface IField {
   'Nom Fondateur': string
   'Photo Fondateur': Array<IFieldImages>
   'Photo de couverture': Array<IFieldImages>
+  'IDs Fonctionnalités': Array<string>
+  'Fonctionnalités': Array<string>
   Tags: Array<string>
   'Profil Fondateur': string
   'Site Web': string
