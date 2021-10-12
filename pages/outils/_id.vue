@@ -8,19 +8,24 @@
     </div>
     <div class="mt-4 flex flex-col sm:flex-row max-w-5xl justify-center mx-auto">
       <div>
-        <div class="sticky top-4 left-0 bg-white flex flex-col rounded-lg shadow-lg p-6 sm:mr-5 mb-5 sm:mb-0 h-auto">
-          <div class="flex flex-col items-center justify-center">
-            <img :src="tool.fields['Logo'][0].url" alt="" class="rounded-full w-32 h-32">
-            <h1 class="text-center mt-4 font-semibold text-3xl">
+        <div class="sm:w-52 sticky top-4 left-0 bg-white flex flex-col rounded-lg shadow-lg p-6 sm:mr-5 mb-5 sm:mb-0 h-auto">
+          <div class="mb-8 sm:mb-0 flex flex-col items-center justify-center">
+            <img :src="tool.fields['Logo'][0].url" alt="" class="rounded-full w-24 h-24">
+            <h1 class="text-center mt-4 font-semibold text-2xl">
               {{ tool.fields['Nom'] }}
             </h1>
           </div>
-          <hr class="my-4">
+          <hr class="hidden sm:block my-4">
           <div class="info grid gap-7">
             <div class="flex flex-col">
+              <ButtonAppHref :link="tool.fields['Site Web']" :link-nuxt="false" class="mx-auto bg-blue-500 hover:bg-blue-600">
+                Découvrir
+              </ButtonAppHref>
+            </div>
+            <div v-if="tool.fields['Tags']" class="flex flex-col">
               <span class="text-sm font-medium text-gray-600">Tags</span>
-              <div class="grid gap-1 mt-1">
-                <span v-for="(tag, indexTag) in tool.fields['Tags']" :key="indexTag" class="text-sm text-blue-500 p-2 bg-blue-100 rounded-xl w-auto">
+              <div class="flex sm:flex-col gap-1 mt-1">
+                <span v-for="(tag, indexTag) in tool.fields['Tags']" :key="indexTag" class="sm:mr-auto text-center text-sm text-blue-500 p-2 bg-blue-100 rounded-xl w-auto">
                   {{ tag }}
                 </span>
               </div>
@@ -36,7 +41,7 @@
                 </div>
               </a>
             </div> -->
-            <div class="flex flex-col">
+            <div v-if="tool.fields['Fonctionnalités']" class="flex flex-col">
               <span class="text-sm font-medium text-gray-600">Fonctionnalités</span>
               <div class="grid gap-2 mt-1">
                 <div v-for="(feature, indexFeature) in tool.fields['Fonctionnalités']" :key="indexFeature" class="text-sm w-auto flex">
@@ -56,6 +61,11 @@
                     {{ feature }}
                   </span>
                 </div>
+                <!-- <ul class="!list-disc">
+                  <li v-for="(feature, indexFeature) in tool.fields['Fonctionnalités']" :key="indexFeature" class="text-sm w-auto flex">
+                    • {{ feature }}
+                  </li>
+                </ul> -->
               </div>
             </div>
             <!-- <div class="flex flex-col">
@@ -77,35 +87,36 @@
         </div>
       </div>
       <div class="flex flex-col h-full">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
-          <div class="text-center grid gap-3 p-6 border-t-8 border-blue-500 bg-white rounded-xl shadow-lg">
-            <span class="text-sm font-medium text-gray-600">Nom</span>
-            <span class="text-xl font-semibold">{{ tool.fields['Nom'] }}</span>
-          </div>
-          <div class="text-center grid gap-3 p-6 border-t-8 border-blue-500 bg-white rounded-xl shadow-lg">
-            <span class="text-sm font-medium text-gray-600">Site web</span>
-            <a :href="tool.fields['Site Web']" target="_blank" class="text-blue-500 hover:underline">
-              {{ shortedBoxURL(tool.fields['Site Web']) }}
-            </a>
-          </div>
-          <!-- <div class="text-center grid gap-3 p-6 border-t-8 border-blue-500 bg-white rounded-xl shadow-lg">
-            <span class="text-sm font-medium text-gray-600">Nom fondateur</span>
-            <span class="text-xl font-semibold">{{ tool.fields['Nom Fondateur'] }}</span>
-          </div>
-          <div class="text-center grid gap-3 p-6 border-t-8 border-blue-500 bg-white rounded-xl shadow-lg">
-            <span class="text-sm font-medium text-gray-600">Profil Fondateur</span>
-            <a :href="tool.fields['Profil Fondateur']" target="_blank" class="text-blue-500 hover:underline">
-              {{ shortedBoxURL(tool.fields['Profil Fondateur']) }}
-            </a>
-          </div> -->
-        </div>
-        <div class="bg-white flex flex-col rounded-lg shadow-lg p-6 my-5">
-          <span class="text-sm font-medium text-gray-600 mb-2">Description</span>
-          <p>{{ tool.fields['Description'] }}</p>
-        </div>
         <div class="bg-white flex flex-col rounded-lg shadow-lg p-6">
           <span class="text-sm font-medium text-gray-600 mb-2">Photo de présentation</span>
           <img :src="tool.fields['Photo de couverture'][0].url" alt="" class="rounded-lg">
+        </div>
+        <div class="bg-white flex flex-col rounded-lg shadow-lg p-6 mt-8">
+          <span class="text-sm font-medium text-gray-600 mb-2">Description</span>
+          <p>{{ tool.fields['Description'] }}</p>
+        </div>
+        <div class="mx-auto text-center grid gap-3 p-6 border-4 border-blue-500 bg-white rounded-xl shadow-lg mt-8">
+          <span class="text-sm font-medium text-gray-600">Site web</span>
+          <a :href="tool.fields['Site Web']" target="_blank" class="text-blue-500 hover:underline">
+            {{ tool.fields['Site Web'] }}
+          </a>
+          <ButtonAppHref :link="tool.fields['Site Web']" :link-nuxt="false" class="mx-auto bg-blue-500 hover:bg-blue-600">
+            Découvrir l'outil
+          </ButtonAppHref>
+        </div>
+        <div class="bg-white flex flex-col rounded-lg shadow-lg p-6 mt-8">
+          <span class="text-sm font-medium text-gray-600 mb-2">Vidéo de présentation</span>
+          <!-- <video src="https://www.youtube.com/watch?v=dA5Vl0a4ZV8" /> -->
+          <!-- <video controls="controls" class="video-stream" x-webkit-airplay="allow" data-youtube-id="N9oxmRT2YWw" src="https://www.youtube.com/watch?v=dA5Vl0a4ZV8" /> -->
+          <iframe
+            height="400"
+            :src="tool.fields['Youtube']"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+          <!-- <video :src="tool.fields['Photo de couverture'][0].url" alt="" class="rounded-lg"> -->
         </div>
       </div>
     </div>
