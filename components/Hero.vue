@@ -7,7 +7,7 @@
           ToolboxJob
         </h1>
         <p class="text-xl">
-          Tu es en recherche d'emploi (Stage, Alternance, CDD, CDI, etc...) et tu cherches à améliorer tes résultats ? Bienvenue sur ToolboxJob une banque d'outils, formation, newsletters (etc...) qui t'accompagne dans ta quête du Graal !
+          Tu es en recherche d'emploi (Stage, Alternance, CDD, CDI, etc...) et tu cherches à améliorer tes résultats ? Bienvenue sur ToolboxJob une banque d'outils, formations, newsletters (etc...) qui t'accompagne dans ta quête du Graal !
         </p>
       </div>
     </div>

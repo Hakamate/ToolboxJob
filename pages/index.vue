@@ -5,10 +5,10 @@
       <div class="max-w-screen-xl">
         <div class="mb-16">
           <h2 class="text-3xl font-semibold">
-            Liste d'outil pour booster ta recherche
+            Liste d'outils pour booster ta recherche
           </h2>
-          <p class="text-xl max-w-4xl">
-            Les éléments présents on leurs spécificités, qu'ils s'agissent de formations, de newsletter d'outil ou autres, mais ont tous un but commun, vous permettre de décrocher un emploi !
+          <p class="text-xl max-w-4xl text-gray-700">
+            Les solutions présentes ont chacune leurs spécificités, mais ont tous un but commun, vous permettre de décrocher un emploi !
           </p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
