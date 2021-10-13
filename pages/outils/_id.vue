@@ -95,7 +95,7 @@
           <span class="text-sm font-medium text-gray-600 mb-2">Description</span>
           <p>{{ tool.fields['Description'] }}</p>
         </div>
-        <div class="mx-auto text-center grid gap-3 p-6 border-4 border-blue-500 bg-white rounded-xl shadow-lg mt-8">
+        <!-- <div class="mx-auto text-center grid gap-3 p-6 border-4 border-blue-500 bg-white rounded-xl shadow-lg mt-8">
           <span class="text-sm font-medium text-gray-600">Site web</span>
           <a :href="tool.fields['Site Web']" target="_blank" class="text-blue-500 hover:underline">
             {{ tool.fields['Site Web'] }}
@@ -103,7 +103,7 @@
           <ButtonAppHref :link="tool.fields['Site Web']" :link-nuxt="false" class="mx-auto bg-blue-500 hover:bg-blue-600">
             Découvrir l'outil
           </ButtonAppHref>
-        </div>
+        </div> -->
         <div class="bg-white flex flex-col rounded-lg shadow-lg p-6 mt-8">
           <span class="text-sm font-medium text-gray-600 mb-2">Vidéo de présentation</span>
           <!-- <video src="https://www.youtube.com/watch?v=dA5Vl0a4ZV8" /> -->
